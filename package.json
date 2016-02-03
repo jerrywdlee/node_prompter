@@ -1,0 +1,26 @@
+{
+  "name": "node_prompter",
+  "version": "1.0.0",
+  "description": "0.1.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jerrywdlee/node_prompter.git"
+  },
+  "keywords": [
+    "prompter"
+  ],
+  "author": "Jerry Lee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jerrywdlee/node_prompter/issues"
+  },
+  "homepage": "https://github.com/jerrywdlee/node_prompter#readme",
+  "dependencies": {
+    "ejs": "^2.4.1",
+    "express": "^4.13.4"
+  }
+}

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Node Prompter -- Setting</title>
+  <style type="text/css">
+    h1 {font-size:70px;}
+    #qrcode {margin-left:1cm;}
+  </style>
+  <script type="text/javascript" src="./js/qrcode.min.js"></script>
+  
+  </head>
+  <body>
+    <h2>Node Prompter -- Setting</h2>
+    <p>Please Connect to One of Them:</p>
+      <table>
+        <% for(var i in server_url){ %>
+        <tr>
+          <td align="left"><%= i %> :</td>
+          <td align="right"><button onclick="makeCode('<%= server_url[i] %>'+'/viewer')">Set This IP to QR</button></td>
+        </tr>
+        <tr>
+          <td align="left"><%= server_url[i] %></td>
+          <td></td>
+        </tr>
+        <% } %>
+        <tr>
+          <td align="left">----------------</td>
+          <td align="right">-----------------</td>
+        </tr>
+        <tr>
+          <td><form method="GET" action="/exit">
+            <input type="hidden" name="jump_time" value="3000"/>
+            <input type="submit" value="Exit Setting"/>
+          </form> </td>
+          <td align="right"><button type="button" onclick="location.href='./viewer'" >Viewer Page</button></td>
+        </tr>
+      </table>
+      <h3 id="ip"></h3>
+      <div id="qrcode" style="width:300px; height:300px; margin-top:15px;"></div>
+      <br><br>
+      <a id="jump_point" ></a>
+      <script type="text/javascript">
+        var qrcode = new QRCode(document.getElementById("qrcode"), {
+          width : 300,
+          height : 300
+        });
+        function makeCode (elText) {    
+          //var elText = "Test Text"; 
+          
+          document.getElementById("ip").innerHTML="QR code of <br/>"+elText;
+          qrcode.makeCode(elText);
+          location.href='#jump_point'
+        }
+        //makeCode();
+      </script>   
+  </body>
+</html>
